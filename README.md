@@ -53,5 +53,5 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 ## Contact
 For any inquiries, feel free to reach out:
 - **GitHub**: [Almir Bajric](https://github.com/AlmirBajric)
-- **Email**: [your-email@example.com] (Replace with your actual email)
+- **Email**: [bajricalmir55@gmail.com] 
 
