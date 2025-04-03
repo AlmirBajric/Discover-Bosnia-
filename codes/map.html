@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+ 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+       
+       // Initialize the map
+const map = L.map('map').setView([43.8563, 18.4131], 8);    
+
+// Add OpenStreetMap tile layer
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+// Define the bounds of Bosnia and Herzegovina
+const bosniaBounds = [
+    [42.5462, 15.7289], // Bottom-left corner (southwest)
+    [45.2764, 19.6239]  // Top-right corner (northeast)
+];
+// Fit the map to these bounds
+map.fitBounds(bosniaBounds);
+
+// Add markers for cities
+const cities = [
+    { name: 'Sarajevo', coords: [43.8563, 18.4131] },
+    { name: 'Mostar', coords: [43.3438, 17.8078] },
+    { name: 'Banja Luka', coords: [44.7722, 17.1910] },
+    { name: 'Tuzla', coords: [44.5378, 18.6739] },
+    { name: 'Travnik', coords: [44.2264, 17.6658] },
+    { name: 'Zenica', coords: [44.2017, 17.9039] }
+];
+
+// Loop through the cities and add a marker for each
+cities.forEach(city => {
+    L.marker(city.coords).addTo(map).bindPopup(`<b>${city.name}</b>`).openPopup();
+});
+
+    </script>
+</body>
+</html>

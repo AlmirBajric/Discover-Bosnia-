@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Bosnia</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#destinations" class="nav-link">Destinations</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Bosnia and Herzegovina</h1>
+            <p>Embark on an unforgettable journey through history, culture, and nature.</p>
+            <button onclick="location.href='about.html'">Discover More</button>
+        </div>
+    </section>
+
+    <!-- Quick Facts Section -->
+    <section id="home" class="info">
+        <h2>Quick Facts</h2>
+        <ul>
+            <li>Capital: Sarajevo</li>
+            <li>Population: 3.3 million</li>
+            <li>Official Languages: Bosnian, Croatian, Serbian</li>
+            <li>Currency: Convertible Mark (BAM)</li>
+        </ul>
+    </section>
+
+    <section id="destinations" class="destinations">
+    <h2>Explore Bosnia's Major Cities</h2>
+    <p>Discover the wonders of Bosnia! Click on a city to learn more about its unique attractions.</p>
+    <div class="city-links">
+        <button class="city-link" data-city="sarajevo">Sarajevo</button>
+        <button class="city-link" data-city="mostar">Mostar</button>
+        <button class="city-link" data-city="banja-luka">Banja Luka</button>
+        <button class="city-link" data-city="tuzla">Tuzla</button>
+        <button class="city-link" data-city="zenica">Zenica</button>
+        <button class="city-link" data-city="travnik">Travnik</button>
+    </div>
+    <div class="city-details">
+        <h3>City Information</h3>
+        <p id="city-description">Click on a city to learn more about it!</p>
+    </div>
+</section>
+
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+        </div>
+
+        <!-- Images Section -->
+        <section class="image-gallery">
+            <button id="open-gallery">Images</button>
+        </section>
+        
+        <!-- Modal Structure -->
+        <div id="gallery-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Select a City</h2>
+                <div class="city-selection">
+                    <button class="city-button" data-city="sarajevo" data-url="sarajevo.html">Sarajevo</button>
+                    <button class="city-button" data-city="mostar" data-url="mostar.html">Mostar</button>
+                    <button class="city-button" data-city="banjaluka" data-url="banjaluka.html">Banja Luka</button>
+                    <button class="city-button" data-city="tuzla" data-url="tuzla.html">Tuzla</button>
+                    <button class="city-button" data-city="zenica" data-url="zenica.html">Zenica</button>
+                    <button class="city-button" data-city="travnik" data-url="travnik.html">Travnik</button>
+                </div>
+            </div>
+        </div>
+
+          <!-- Map Section -->
+    <section id="map-section" class="map">
+        <h2>Check the map of Bosnia and Herzegovina</h2>
+        <iframe src="map.html" width="100%" height="600px" style="border: none;"></iframe>
+    </section>
+    
+     <!-- JavaScript Context Tables Section -->
+     <section id="context-tables" class="py-16 text-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-yellow-400 mb-6">Context Table</h2>
+            <p class="mb-6">Switch between different contexts to explore more detailed information about cities.</p>
+                        
+            <div class="flex justify-center space-x-4 mb-6">
+                <button id="population-btn" class="bg-yellow-400 text-blue-900 font-semibold px-6 py-3 rounded shadow hover:bg-yellow-500">Show Population</button>
+                <button id="attraction-btn" class="bg-yellow-400 text-blue-900 font-semibold px-6 py-3 rounded shadow hover:bg-yellow-500">Show Main Attraction</button>
+                <button id="area-btn" class="bg-yellow-400 text-blue-900 font-semibold px-6 py-3 rounded shadow hover:bg-yellow-500">Show Area</button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white text-blue-900 rounded-lg shadow">
+                    <thead>
+                        <tr class="bg-yellow-400 text-blue-900 font-bold">
+                            <th class="py-4 px-6">City</th>
+                            <th id="context-header" class="py-4 px-6">Population</th>
+                        </tr>
+                    </thead>
+                    <tbody id="context-table-body">
+                        <!-- Dynamic content populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Plan your trip section -->
+    <section id="itinerary-planner" class="py-16 text-white bg-gray-800">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-yellow-400 mb-6">Plan Your Trip</h2>
+            <p class="mb-6">Select cities to create your custom itinerary.</p>
+            
+            <!-- Dropdown to add cities -->
+            <div class="mb-4">
+                <select id="city-selector" class="bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded">
+                    <option value="" disabled selected>Select a city</option>
+                    <option value="Sarajevo">Sarajevo</option>
+                    <option value="Mostar">Mostar</option>
+                    <option value="Banja Luka">Banja Luka</option>
+                    <option value="Tuzla">Tuzla</option>
+                    <option value="Zenica">Zenica</option>
+                    <option value="Travnik">Travnik</option>
+                </select>
+                <button id="add-city-btn" class="bg-blue-600 text-white px-4 py-2 rounded ml-2 hover:bg-blue-700">Add to Itinerary</button>
+            </div>
+    
+            <!-- Itinerary List -->
+            <ul id="itinerary-list" class="text-left max-w-md mx-auto bg-white text-blue-900 p-4 rounded shadow">
+                <!-- Dynamic content populated by JavaScript -->
+            </ul>
+    
+            <!-- Save or Clear Itinerary -->
+            <div class="mt-6">
+                <button id="save-itinerary-btn" class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700">Save Itinerary</button>
+                <button id="clear-itinerary-btn" class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 ml-4">Clear</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        </div>
+        <p>Email: bajricalmir55@gmail.com</a></p>
+        <p>Phone: +387 62 182 760</a></p>
+        <p>&copy; 2024 Discover Bosnia</p>
+    </footer>
+</body>
+</html>
